@@ -9,22 +9,34 @@ import java.io.Serializable;
 @Entity
 public class Photo implements Serializable
 {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String title;
+    private String details;
+    private String path;
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", details='" + details + '\'' +
+                ", path='" + path + '\'' +
+                '}';
+    }
+
     public Photo(String title, String details, String path) {
         this.title = title;
         this.details = details;
         this.path = path;
     }
 
-    public Photo() {}
+    public Photo() {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String title;
-    private String details;
-    private String path;
+    }
 
     public int getId() {
+
         return id;
     }
 
@@ -55,16 +67,4 @@ public class Photo implements Serializable
     public void setPath(String path) {
         this.path = path;
     }
-
-    @Override
-    public String toString() {
-        return "Photo{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", details='" + details + '\'' +
-                ", path='" + path + '\'' +
-                '}';
-    }
-
-
 }

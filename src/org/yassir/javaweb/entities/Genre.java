@@ -1,19 +1,20 @@
 package org.yassir.javaweb.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Genre implements Serializable
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String description;
+
+    //biderectional one to many, this is parent
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="genre")
+    private List<Song> songList;
 
     @Override
     public String toString() {
@@ -21,7 +22,14 @@ public class Genre implements Serializable
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
+                ", songList=" + songList +
                 '}';
+    }
+
+    public Genre(String title, String description, List<Song> songList) {
+        this.title = title;
+        this.description = description;
+        this.songList = songList;
     }
 
     public Genre(String title, String description) {
@@ -34,6 +42,7 @@ public class Genre implements Serializable
     }
 
     public int getId() {
+
         return id;
     }
 
@@ -55,5 +64,13 @@ public class Genre implements Serializable
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Song> getSongList() {
+        return songList;
+    }
+
+    public void setSongList(List<Song> songList) {
+        this.songList = songList;
     }
 }

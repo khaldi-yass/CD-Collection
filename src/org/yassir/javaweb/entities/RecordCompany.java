@@ -2,25 +2,21 @@ package org.yassir.javaweb.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity @Table(name = "record_companies")
 public class RecordCompany implements Serializable
 {
-    public RecordCompany() {
-    }
 
-    public RecordCompany(String name, String address, String details) {
-        this.name = name;
-        this.address = address;
-        this.details = details;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String address;
     private String details;
+
+    // bidirectional One to many,  this is parent
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="recordCompany")
+    private List<CD> cdList;
 
     @Override
     public String toString() {
@@ -29,6 +25,7 @@ public class RecordCompany implements Serializable
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", details='" + details + '\'' +
+                ", cdList=" + cdList +
                 '}';
     }
 
@@ -62,5 +59,30 @@ public class RecordCompany implements Serializable
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public List<CD> getCdList() {
+        return cdList;
+    }
+
+    public void setCdList(List<CD> cdList) {
+        this.cdList = cdList;
+    }
+
+    public RecordCompany(String name, String address, String details, List<CD> cdList) {
+
+        this.name = name;
+        this.address = address;
+        this.details = details;
+        this.cdList = cdList;
+    }    public RecordCompany(String name, String address, String details) {
+
+        this.name = name;
+        this.address = address;
+        this.details = details;
+    }
+
+    public RecordCompany() {
+
     }
 }

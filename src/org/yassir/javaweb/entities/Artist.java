@@ -9,7 +9,49 @@ import java.util.List;
 @Table(name = "artists")
 public class Artist implements Serializable {
 
-    public Artist() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private String gender;
+    private Date birth;
+    private float height;
+    private float weight;
+
+    // Unidirectional One to one,  this is child
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_photo", nullable = false)
+    private Photo photo;
+
+    // Bidirectional many to many,  this is child
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable( name = "artists_songs",
+                joinColumns = @JoinColumn(name = "artist_id"),
+                inverseJoinColumns = @JoinColumn(name = "song_id"))
+    private List<Song> songList;
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birth=" + birth +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", photo=" + photo +
+                ", songList=" + songList +
+                '}';
+    }
+
+    public Artist(String name, String gender, Date birth, float height, float weight, Photo photo, List<Song> songList) {
+        this.name = name;
+        this.gender = gender;
+        this.birth = birth;
+        this.height = height;
+        this.weight = weight;
+        this.photo = photo;
+        this.songList = songList;
     }
 
     public Artist(String name, String gender, Date birth, float height, float weight, Photo photo) {
@@ -21,20 +63,12 @@ public class Artist implements Serializable {
         this.photo = photo;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String gender;
-    private Date birth;
-    private float height;
-    private float weight;
-    private Photo photo;
+    public Artist() {
 
-    @ElementCollection(targetClass=Song.class)
-    private List<Song> songList;
+    }
 
     public int getId() {
+
         return id;
     }
 
@@ -96,18 +130,5 @@ public class Artist implements Serializable {
 
     public void setSongList(List<Song> songList) {
         this.songList = songList;
-    }
-
-    @Override
-    public String toString() {
-        return "Artist{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", birth=" + birth +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", photo=" + photo +
-                '}';
     }
 }

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="projectdb_cd_collection@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="projectdb_cd_collection">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="phpmyadmin"/>
+    <schema id="7" parent="1" name="projectdb_bank"/>
+    <schema id="8" parent="1" name="projectdb_ecommerce"/>
+    <schema id="9" parent="1" name="projectdb_ecommerce1"/>
+    <schema id="10" parent="1" name="projectdb_ecommerce2"/>
+    <schema id="11" parent="1" name="projectdb_employees"/>
+    <schema id="12" parent="1" name="projectdb_library"/>
+    <schema id="13" parent="1" name="projectdb_quiz_new"/>
+    <schema id="14" parent="1" name="test"/>
+    <schema id="15" parent="1" name="testing"/>
+    <table id="16" parent="2" name="artists"/>
+    <table id="17" parent="2" name="artists_cds"/>
+    <table id="18" parent="2" name="artists_songs"/>
+    <table id="19" parent="2" name="cds"/>
+    <table id="20" parent="2" name="cds_artists"/>
+    <table id="21" parent="2" name="cds_songs"/>
+    <table id="22" parent="2" name="genre"/>
+    <table id="23" parent="2" name="photo"/>
+    <table id="24" parent="2" name="record_companies"/>
+    <table id="25" parent="2" name="songs"/>
+    <table id="26" parent="2" name="songs_artists"/>
+    <column id="27" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="16" name="birth">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="29" parent="16" name="gender">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="30" parent="16" name="height">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="16" name="name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="32" parent="16" name="weight">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="16" name="id_photo">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="34" parent="16" name="FK74bwllh3nwtr0hjlwdht1gnrg">
+      <ColNames>id_photo</ColNames>
+    </index>
+    <key id="35" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="17" name="cd_id">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="17" name="artist_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="38" parent="17" name="FK1bpddv6p7l3df9slyxddvdj7n">
+      <ColNames>cd_id</ColNames>
+    </index>
+    <index id="39" parent="17" name="FKjgxdx1te3h7rl9nhm03xqb3io">
+      <ColNames>artist_id</ColNames>
+    </index>
+    <column id="40" parent="18" name="artist_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="18" name="song_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="42" parent="18" name="FK47tug6xd0qgi6rjujrg9xwqik">
+      <ColNames>artist_id</ColNames>
+    </index>
+    <index id="43" parent="18" name="FKbqg9if9uweg4snpacxjo1nmq0">
+      <ColNames>song_id</ColNames>
+    </index>
+    <column id="44" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="45" parent="19" name="cost">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="19" name="number_of_tracks">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="47" parent="19" name="release_date">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="48" parent="19" name="title">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="49" parent="19" name="total_playing_time">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="50" parent="19" name="id_cover">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="19" name="id_record_company">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="52" parent="19" name="FK1rw8okya5f7etul5bxv58upj6">
+      <ColNames>id_record_company</ColNames>
+    </index>
+    <index id="53" parent="19" name="FKp4t45ghwrk96r1wxk2hgbe53l">
+      <ColNames>id_cover</ColNames>
+    </index>
+    <key id="54" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="20" name="CD_id">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="20" name="artistList_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="57" parent="20" name="FK2i3nwdk5c74plqx9t7t6jy8kb">
+      <ColNames>CD_id</ColNames>
+    </index>
+    <index id="58" parent="20" name="UK_5e96mv68u725vy26w7v8bne5h">
+      <ColNames>artistList_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="59" parent="20" name="UK_5e96mv68u725vy26w7v8bne5h">
+      <ColNames>artistList_id</ColNames>
+      <UnderlyingIndexName>UK_5e96mv68u725vy26w7v8bne5h</UnderlyingIndexName>
+    </key>
+    <column id="60" parent="21" name="CD_id">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="21" name="songList_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="62" parent="21" name="FKq8y3najguddox1y92seaf37d8">
+      <ColNames>CD_id</ColNames>
+    </index>
+    <index id="63" parent="21" name="UK_gat22nsfkxqxv9q7hvpdn36mu">
+      <ColNames>songList_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="64" parent="21" name="UK_gat22nsfkxqxv9q7hvpdn36mu">
+      <ColNames>songList_id</ColNames>
+      <UnderlyingIndexName>UK_gat22nsfkxqxv9q7hvpdn36mu</UnderlyingIndexName>
+    </key>
+    <column id="65" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="22" name="description">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="67" parent="22" name="title">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="68" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="23" name="details">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="71" parent="23" name="path">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="72" parent="23" name="title">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="73" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="75" parent="24" name="address">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="76" parent="24" name="details">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="77" parent="24" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="78" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="79" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="80" parent="25" name="details">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="81" parent="25" name="length">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="25" name="title">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="83" parent="25" name="track_number">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="84" parent="25" name="cd_id">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="85" parent="25" name="genre_id">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="86" parent="25" name="FKgnlb6wv1vv6djq3m2gv87qui">
+      <ColNames>genre_id</ColNames>
+    </index>
+    <index id="87" parent="25" name="FKsfi2sqdudk4clm94wykw28jf">
+      <ColNames>cd_id</ColNames>
+    </index>
+    <key id="88" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="89" parent="26" name="Song_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="26" name="artists_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="91" parent="26" name="FKpstu7r8ydt5ck4bwys0eu2cym">
+      <ColNames>Song_id</ColNames>
+    </index>
+    <index id="92" parent="26" name="UK_m7vtae2gb643sxa58snbsh6b7">
+      <ColNames>artists_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="93" parent="26" name="UK_m7vtae2gb643sxa58snbsh6b7">
+      <ColNames>artists_id</ColNames>
+      <UnderlyingIndexName>UK_m7vtae2gb643sxa58snbsh6b7</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
