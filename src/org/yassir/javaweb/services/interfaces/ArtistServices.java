@@ -17,7 +17,7 @@ public interface ArtistServices
     public Artist getArtist(int id);
     public List<Artist> getListArtists();
     public List<Artist> getListArtists(int maxResults);
-    public List<Artist> getListArtists(TypedQuery<Artist> query);
+    public List<Artist> getListArtists(String JpaQuery);
 
     //update
     public int updateArtist(Artist artist);

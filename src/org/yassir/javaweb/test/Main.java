@@ -30,9 +30,9 @@ public class Main
         //creating 3 artists
         for (int i = 1; i < 4; i++) {
 
-            Date birth = YassirUtils.localDateToDateUtil(YassirUtils.createDate(i+1, i+1, 2017+i));
-            Photo photo = new Photo("Photo"+i, "Photos details", "artists/photo"+i+".jpg");
-            Artist artist = new Artist("Artist"+i,"Male", birth, 1.8f, 70f, photo);
+            Date birth = YassirUtils.localDateToDateUtil(YassirUtils.createDate(i + 1, i + 1, 2017 + i));
+            Photo photo = new Photo("Photo" + i, "Photos details", "artists/photo" + i + ".jpg");
+            Artist artist = new Artist("Artist" + i, "Male", birth, 1.8f, 70f, photo);
 
             artistsPhotos.add(photo);
             artistList.add(artist);
@@ -56,7 +56,7 @@ public class Main
         }
         System.out.println("Liste songs: créé..");
 
-        //creating 2 record companies
+        //creating 1 record company
         RecordCompany recordCompany = new RecordCompany("Comp1", "Adress1", "Details1");
         recordCompanies.add(recordCompany);
         System.out.println("Liste Record comps: créé..");
@@ -80,6 +80,7 @@ public class Main
         em.close();
         //ConnectionManagerSingleton.closeFactory();
         System.out.println("Closed...");
+
     }
 
 }
